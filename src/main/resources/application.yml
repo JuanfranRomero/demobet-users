@@ -1,0 +1,22 @@
+spring:
+
+  # Service name in Eureka
+  application:
+    name: users-service
+    
+  # Database MySQL
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3355/demo
+    username: root
+    password: bfhs7Hi38o1Bas8jH90VS
+    
+# Discovery Eureka Server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9999/eureka/    
+
+# Tomcat port
+server:
+  port: 1002
