@@ -16,10 +16,14 @@ import es.demobet.users.utils.ObjectMapperUtils;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
+	private final UserService userService;
 	
 	@Autowired
-	private UserService userService;
-	
+	public UserController(UserService userService) {
+		this.userService = userService;
+	}
+
 	@PostMapping("/signup")
     public ResponseEntity<UserDto> create(@RequestBody RegisterRequest registerRequest) {
         User registeredUser = userService.create(registerRequest);

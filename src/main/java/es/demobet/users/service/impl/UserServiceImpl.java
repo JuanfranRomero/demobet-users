@@ -15,15 +15,17 @@ import es.demobet.users.utils.ObjectMapperUtils;
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserRepository userRepository;
+	private final UserRepository userRepository;
+	private final PasswordEncoder passwordEncoder;
+	private final RestTemplate restTemplate;
 	
 	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
-	@Autowired
-	private RestTemplate restTemplate;
-	
+	public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, RestTemplate restTemplate) {
+		this.userRepository = userRepository;
+		this.passwordEncoder = passwordEncoder;
+		this.restTemplate = restTemplate;
+	}
+
 	@Override
 	public User create(RegisterRequest registerRequest) {
 		User user = ObjectMapperUtils.map(registerRequest, User.class);
