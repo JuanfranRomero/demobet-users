@@ -1,4 +1,4 @@
-package es.demobet.users.security;
+package es.demobet.users.configuration;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
